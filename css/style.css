@@ -2,6 +2,7 @@
 
 :root {
   --primary-color: #f60f20;
+  --lite-gray: #eeeeee;
 }
 
 /*Base Style*/
@@ -29,9 +30,16 @@ p {
 
 section {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   align-items: center;
   padding: 100px;
+  margin-top: 60px;
+}
+
+section.home {
+  flex-direction: row;
+  margin-top: 0;
 }
 
 /*Button*/
@@ -154,4 +162,104 @@ section {
   bottom: 0;
   right: 0;
   height: 110%;
+}
+
+/*Services Page*/
+.services {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /*same as 1fr 1fr 1fr//try 50% 50%*/
+  gap: 40px;
+  text-align: center;
+}
+
+.services .service .icon img {
+  max-width: 100px;
+}
+
+.services .service {
+  padding: 30px;
+  background-color: var(--lite-gray);
+}
+
+.services .service:hover {
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.services .service h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 20px;
+  color: #1b206e;
+}
+
+/*Work Page*/
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.portfolio .item {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 5px;
+}
+
+.portfolio .item img {
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio .item .action {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.portfolio .item .action a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 5px 15px;
+}
+
+/*Media Queries*/
+@media (max-width: 1068px) {
+  .home-img {
+    display: none;
+  }
+
+  .logo {
+    top: 10px;
+    left: 40px;
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 100px 40px;
+  }
+
+  .navigation ul li a {
+    font-size: 2rem;
+  }
+
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    grid-template-columns: 1fr;
+  }
 }
